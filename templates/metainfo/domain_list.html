@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+Domain's list
+{% endblock %}
+
+{% block content %}
+        <a class="repo-link btn btn-primary btn-small" href="{% url 'domains:create' %}">Add domain</a>
+        <a class="repo-link btn btn-primary btn-small" href="{% url 'domains:sync_all' %}">Pull meta information</a>
+<div id="domain-list">
+    {% for domain in object_list %}
+        <div class="box" id="id_{{lesson.id}}">
+            <div class="description">
+                <a href="{% url 'domains:detail' domain.pk %}">{{ domain }}</a>
+            </div>
+
+            <div class="settings">
+                <a href="{% url 'domains:sync_detail' domain.pk %}">sync</a>
+            </div>
+        </div>
+    {% empty %}
+        Not domains
+    {% endfor %}
+</div>
+{% endblock %}

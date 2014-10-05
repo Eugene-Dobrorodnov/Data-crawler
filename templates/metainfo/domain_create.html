@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+Create new domain
+{% endblock %}
+
+{% block content %}
+<form action="{% url 'domains:create' %}" id="create_comment_form" method=
+        "post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Create">
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+{{ domain }}
+{% endblock %}
+
+{% block content %}
+<a href="{{ domain }}" target="_blank">{{ domain }}</a>
+<br>
+<br>
+{% if meta %}
+<span><b>Title:</b> {{ meta.title }}</span><br>
+<span><b>Description:</b> {{ meta.description }}</span><br>
+<span><b>Keywords:</b> {{ meta.keywords }}</span><br>
+<span><b>Image:</b> {{ meta.image }}</span><br>
+{% endif %}
+
+<a class="repo-link btn btn-primary btn-small" href="{% url 'domains:sync_detail' domain.id %}">Pull meta information</a>
+
+{% endblock %}
